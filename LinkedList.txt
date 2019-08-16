@@ -1,0 +1,139 @@
+/******************************************************************************
+
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <stdio.h>
+
+struct linkedList
+{
+    int data;
+    struct linkedList * link;
+};
+typedef struct linkedList node;
+node *p;
+node *head;
+void addElements();
+void displayElements();
+void append();
+void addBegin();
+void delete(int);
+
+int main()
+{
+    head = NULL;   
+    int choice,pos;
+    while(1)
+    {
+        printf("Enter your choice ");
+        scanf("%d", &choice);
+        switch(choice)
+        {
+            case 1: addElements();
+                    break;
+                
+            case 2: displayElements();
+                    break;
+            
+            case 3: addBegin();
+                    break;
+        
+            case 4: append();
+                    break;
+            
+            case 5: printf("Enter the position of node which has to be deleted ");
+                    scanf("%d", &pos);
+                    delete(pos);
+                    break;
+            
+            case 6: exit(0);
+        }
+    }
+
+    return 0;
+}
+
+void addElements()
+{
+    node * temp;
+    if(head == NULL)
+    {
+        head = (node*)malloc(sizeof(node));
+        printf("Enter first data ");
+        scanf("%d",&head->data);
+        head->link = NULL;
+        p=head;
+    }
+    else
+    {
+        temp = (node*)malloc(sizeof(node));    
+        printf("Enter yor data ");
+        scanf("%d",&temp->data);
+        p->link = temp;
+        temp->link = NULL;
+        p = temp;
+    }
+}
+
+void displayElements()
+{
+ node * temp;
+ temp = head;
+ while (temp != NULL)
+ {
+     printf("%d-->%p\n",temp->data,temp->link);
+     //printf("address of %d is %p\n", temp->data,&temp->data);
+     temp = temp->link;
+ }
+}
+
+void addBegin()
+{   
+    node * temp;
+    temp=(node*)malloc(sizeof(node));
+    printf("enter the first element ");
+    scanf("%d", &temp->data);
+    temp->link = head;
+    head = temp;
+}
+
+void append()
+{
+    node * temp;
+    temp=(node*)malloc(sizeof(node));
+    printf("enter the last element ");
+    scanf("%d", &temp->data);   
+    temp->link = NULL;
+    if(p->link == NULL)
+    {
+        p->link = temp;
+        p=temp;
+    }
+}
+
+void delete(int pos)
+{
+    int i=1;    
+    node *temp, *x;
+    temp = head;
+    if(pos!=1)
+    {
+    while((i< pos-1))
+    {
+        temp = temp->link;
+        i++;
+    }
+    x= temp->link;
+    printf("deleted data is %d\n", x->data);
+    temp->link = x->link;
+    x->link = NULL;
+    }
+    else if(pos == 1)
+    {   
+        printf("deleted data is %d\n", head->data);
+        head = head->link;    
+    }
+}
