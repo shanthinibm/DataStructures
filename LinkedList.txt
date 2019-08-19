@@ -1,3 +1,4 @@
+    
 /******************************************************************************
 
                             Online C Compiler.
@@ -146,25 +147,32 @@ void delete(int pos)
 
 void swap(int loc)
 {
-    node  *p,*q,*r;
+    node  *s,*q,*r, *temp;
     int i =1;
-    int * temp;
     temp = head;
-    p= head;
-    while(i<(loc-1))
+    if(loc !=1)
     {
-        p = p->link;
-        i++;
+        while(i<(loc-1))
+        {
+            temp = temp->link;
+            i++;
+        }
+        s = temp->link;
+        q = s->link;
+        r = q->link;
+        //printf("s = %p,q = %p , r = %p, temp = %p",s,q,r,temp );
+        temp->link = q;
+        q->link = s;
+        s->link = r;
     }
-    
-    printf("p node : %d", p->data);
-    
-    q = p->link;
-    r = q->link;
-    temp = r->link;
-    
-    printf("q = %p , r = %p, temp = %p",q,r,temp );
-    /*p->link = q->link;
-    q->link = r->link;
-    r->link = (node *)temp;*/
-}
+    else if(loc == 1)
+    {
+        s = temp;
+        q = s->link;
+        r = q->link;
+        
+        head = q;
+        s->link = r;
+        q->link = s;
+    }
+} 
