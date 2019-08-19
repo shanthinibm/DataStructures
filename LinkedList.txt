@@ -21,11 +21,12 @@ void displayElements();
 void append();
 void addBegin();
 void delete(int);
+void swap(int loc);
 
 int main()
 {
     head = NULL;   
-    int choice,pos;
+    int choice,pos,loc;
     while(1)
     {
         printf("Enter your choice ");
@@ -48,8 +49,13 @@ int main()
                     scanf("%d", &pos);
                     delete(pos);
                     break;
+                    
+            case 6: printf("Enter the position to be swapped ");
+                    scanf("%d", &loc);
+                    swap(loc);
+                    break;
             
-            case 6: exit(0);
+            case 7: exit(0);
         }
     }
 
@@ -136,4 +142,29 @@ void delete(int pos)
         printf("deleted data is %d\n", head->data);
         head = head->link;    
     }
+}
+
+void swap(int loc)
+{
+    node  *p,*q,*r;
+    int i =1;
+    int * temp;
+    temp = head;
+    p= head;
+    while(i<(loc-1))
+    {
+        p = p->link;
+        i++;
+    }
+    
+    printf("p node : %d", p->data);
+    
+    q = p->link;
+    r = q->link;
+    temp = r->link;
+    
+    printf("q = %p , r = %p, temp = %p",q,r,temp );
+    /*p->link = q->link;
+    q->link = r->link;
+    r->link = (node *)temp;*/
 }
