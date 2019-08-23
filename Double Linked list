@@ -1,0 +1,161 @@
+/******************************************************************************
+
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <stdio.h>
+
+struct node 
+{
+    int data;
+    struct node * left;
+    struct node * right;
+};
+
+void append();
+void addAtBegin();
+void traverse();
+int length();
+void addAfter();
+
+struct node* root = NULL;
+
+int main()
+{
+    int choice, len;
+    while(1)
+    {
+        printf("Enter your choice  ");
+        scanf("%d", &choice);
+        switch(choice)
+        {
+            case 1: append();
+                    break;
+
+            case 2: addAtBegin();
+                    break;
+                    
+            case 3: traverse();
+                    break;
+                
+            case 4: len=length(); 
+                    printf("Length is %d\n", len);
+                    break;
+                
+            case 5: addAfter();
+                    break;
+        
+            case 6 :exit(1);
+        }    
+    }
+    return 0;
+}    
+    
+    void append()
+    {
+        struct node * temp;
+        temp = (struct node*)malloc(sizeof(struct node));
+        printf("Enter the data  ");
+        scanf("%d",&temp->data);
+        temp->right = NULL;
+        temp->left = NULL;
+        
+        if(root == NULL)
+        {
+            root = temp;
+            
+        }
+        else
+        {
+            struct node * p;
+            p = root;
+            while(p->right != NULL)
+            {
+                p = p->right;
+            }
+            p->right = temp;
+            temp->left = p;
+        }
+    }
+    
+    void addAtBegin()
+    {
+      struct node *temp;
+      temp = (struct node *)malloc(sizeof(struct node));
+      printf("Enter the element to be added as first element  ");
+      scanf("%d", &temp->data);
+      temp->left = NULL;
+      root->left = temp;
+      temp->right = root;
+      root = temp; 
+    }
+    
+    void traverse()
+    {
+        struct node *p;
+        p = root;
+        while(p!= NULL)
+        {
+            printf("%d\n",p->data);  
+            p = p->right;
+        }
+    }
+    
+    int length()
+    {
+        struct node *p;
+        int l;
+        p = root;
+        while(p!= NULL)
+        {
+            l++;
+            p = p->right;
+        }
+        
+     return l;   
+    }
+    
+    void addAfter()
+    {
+        int pos,i;
+        struct node * p, *temp;
+        p= root;
+        temp = (struct node*)malloc(sizeof(struct node));
+        printf("Enter the position where new element has to be inserted  ");
+        scanf("%d", &pos);
+        printf("Enter the data which has to be inserted ");
+        scanf("%d", &temp->data);
+        temp->left = NULL;
+        temp->right = NULL;
+        
+        i=1;
+        if(pos == length())
+        {
+            while(p != NULL)
+            {
+                p=p->right;
+            }
+            p->right = temp;
+            temp->left = p;
+        }
+        else
+        {
+            while(i< (pos))
+            {
+                p=p->right;
+                i++;
+            }
+            temp->right = p->right;
+            temp->left = p;
+            p->right->left = temp;
+            p->right = temp;
+        }
+        
+    }
+    
+   
+
+
