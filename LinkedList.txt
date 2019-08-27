@@ -24,11 +24,11 @@ int length();
 void delete(int);
 void swap(int loc);
 void reverseList();
-int l;
+
 int main()
 {
     head = NULL;   
-    int choice,pos,loc;
+    int choice,pos,loc,l;
     while(1)
     {
         printf("Enter your choice ");
@@ -132,7 +132,7 @@ void append()
 
 int length()
 {
-    int len;
+    int len = 0;
     node *temp;
     temp = head;
     while(temp != NULL)
@@ -205,21 +205,15 @@ void reverseList()
     node *s, *q;
     int temp;
     s = q = head;
-    //int l = length();
+    int l = length();
     int j , k;
-    //printf("length = %d",l);
+    //printf("length = %d\n",l);
     for(int i =0;i< l/2;i++)
     {
         
         j = l-1-i;
         k=0;
-        printf("i- %d,j-%d",i,j);
-        while(k<=i)
-        {
-            s=s->link;
-            k++;
-        }
-        k=0;
+        //printf("i- %d,j-%d \n",i,j);
         while(k<j)
         {
             q=q->link;
@@ -228,9 +222,9 @@ void reverseList()
         temp = s->data;
         s->data = q->data;
         q->data = temp;
-        printf("s = %d,q = %d , temp = %d",s->data,q->data,temp);
+        //printf("s = %d,q = %d , temp = %d",s->data,q->data,temp);
         q = head;
-    }
-    
+        s=s->link;
+    }  
     
 }
