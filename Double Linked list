@@ -20,6 +20,7 @@ void addAtBegin();
 void traverse();
 int length();
 void addAfter();
+void delete();
 
 struct node* root = NULL;
 
@@ -47,8 +48,11 @@ int main()
                 
             case 5: addAfter();
                     break;
+                    
+            case 6: delete();
+                    break;
         
-            case 6 :exit(1);
+            case 7 :exit(1);
         }    
     }
     return 0;
@@ -107,11 +111,12 @@ int main()
     int length()
     {
         struct node *p;
-        int l;
+        int l=0;
         p = root;
         while(p!= NULL)
         {
             l++;
+            //printf("data is %d and l %d", p->data, l);
             p = p->right;
         }
         
@@ -132,6 +137,7 @@ int main()
         temp->right = NULL;
         
         i=1;
+        
         if(pos == length())
         {
             while(p != NULL)
@@ -156,6 +162,45 @@ int main()
         
     }
     
-   
-
-
+    void delete()
+    {
+        struct node * temp;
+        temp = root;
+        int pos,len, i =0;
+        len = length();
+        //int i=0;
+        printf("Enter the position of the node to be deleted ");
+        scanf("%d", &pos);
+        if (pos > len)
+        {
+            printf("Position is invalid \n");
+        }
+        if(pos == 1)
+        {
+            //printf("data to be deleted is : %d", root->data);
+            root = temp->right;
+            root->left = NULL;
+        }
+        else
+        {
+            while(i<(pos-1))
+            {
+                temp = temp->right;
+                i++;
+            }
+            //printf("data to be deleted is : %d", temp->data);
+            if(pos == len)
+            {
+                 temp->left->right = NULL;
+                 temp->left = NULL;
+            }
+            else
+            {
+                temp->left->right = temp->right;
+                temp->right->left = temp->left;
+                temp->left = NULL;
+                temp->right = NULL;
+            }
+        }    
+    }    
+    
