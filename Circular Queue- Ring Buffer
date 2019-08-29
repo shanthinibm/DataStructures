@@ -48,11 +48,11 @@ void insert()
     int elem;
     printf("Enter element to insert in the ring buffer ");
     scanf("%d", &elem);
-    if((front == (rear +1)) || ((rear == SIZE-1) && (front == 0)))
+    if((front == (rear +1)) || ((rear == SIZE-1) && ((front) == 0)))
     {
        printf("cQueue is full\n"); 
     }
-    else if((front == -1) && (rear == -1))
+    /*else if((front == -1) && (rear == -1))
     {
         front = rear = 0;
         cQueue[rear] = elem;
@@ -64,8 +64,20 @@ void insert()
     }
     else
     {
-        cQueue[rear] = elem;
         rear++;
+        cQueue[rear] = elem;
+    }*/
+    else
+    {
+        if((front == -1) && (rear == -1))
+        {
+            front = rear = 0;
+        }
+        else if(rear == SIZE-1)
+            rear = 0;
+        else
+            rear++;
+        cQueue[rear] = elem;
     }
 }
 
@@ -76,27 +88,59 @@ void delete()
     {
         printf("Queue is empty\n");
     }
-    else if(front == SIZE-1)
+    /*else if(front == SIZE-1)
     {
         elem = cQueue[front];
-        printf("ELement deleted is %d \n", elem);
+        printf("ELement deleted is %d front : %d\n", elem, front);
         front = 0;
     }
     else if(front == rear)
     {
         elem = cQueue[front];
-        printf("ELement deleted is %d \n", elem);
+        printf("ELement deleted is %d  front : %d\n", elem, front);
         front = rear = -1;
     }
     else
     {
         elem = cQueue[front];
-        printf("ELement deleted is %d \n", elem);
+        printf("ELement deleted is %d front : %d\n", elem, front);
         front++;
+    }*/
+    else
+    {
+        printf("Element deleted is %d\n",cQueue[front]);
+        if(front == rear)
+            front = rear = -1;
+        else if(front == (SIZE - 1)) 
+            front = 0;
+        else    
+            front ++;
     }
 }
 
 void display()
-{
-    
+{   
+    int i,j;
+    printf("rear  = %d, front = %d\n", rear, front);
+    if(rear == front)
+    {
+        printf("Cqueue is empty\n");
+    }
+    else
+    {
+        if(rear < front)
+        {
+            for(j = 0; j <= rear; j++)
+                printf("element is %d at position %d\n", cQueue[j],j);
+            for(i = front; i <= SIZE-1; i++)
+                printf("element is %d at position %d\n", cQueue[i],i);
+        }
+        else
+        {
+            for(i = front; i <= rear; i++)
+            {
+                printf("element is %d at position %d\n", cQueue[i],i);
+            }
+        }
+    }
 }
