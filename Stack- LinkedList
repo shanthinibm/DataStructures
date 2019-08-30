@@ -1,0 +1,105 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+struct linkedList
+{
+    int data;
+    struct linkedList *link;
+};
+
+typedef struct linkedList node;
+node *head = NULL;
+node *top = NULL;
+
+void push();
+void pop();
+void display();
+
+int main()
+{
+    int choice;
+    while(1)
+    {
+        printf("Enter the choice ");
+        scanf("%d", &choice);
+        switch(choice)
+        {
+            case 1: push();
+                break;
+        
+            case 2: pop();
+                    break;
+        
+            case 3: display();
+                    break;
+                
+            case 4: exit(0);        
+        }
+    }
+    return 0;
+}
+
+void push()
+{
+    int elem;
+    node* temp;
+    
+    temp = (struct node*)malloc(sizeof(struct linkedList));
+    printf("Enter the data to be pushed  ");
+    scanf("%d", &temp->data);
+    temp->link = NULL;
+    
+    
+    if(head == NULL)
+        head = top = temp;
+    else
+    {
+        top->link = temp;
+        top = temp;
+    }    
+}
+
+void pop()
+{
+    node *p, *q;
+    p = head;
+    
+    if(top == NULL)
+        printf("Attempting for stack underflow\n");
+    else if(top == head)
+    {
+        printf("Element deleted from stack is %d\n",top->data);
+        head = top = NULL;
+    }
+    else
+    {
+        while(p->link != NULL)
+        {
+            q = p;
+            p = p->link;
+        }
+        
+        printf("Element deleted from stack is %d\n",top->data);
+        q->link = NULL;
+        top = q;
+    }
+}
+
+
+void display()
+{
+    node *p;
+    
+    if( top == NULL)
+        printf("Stack is empty\n");
+    else
+    {
+        p = head;
+        while(p != NULL)
+        {
+            printf("%d\n",p->data);
+            p = p->link;
+        }
+    }
+}
