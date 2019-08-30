@@ -6,8 +6,8 @@ int stack[SIZE];
 int top = -1;
 
 void push();
-//void pop();
-//int getTop();
+void pop();
+int getTop();
 void display();
 
 int main()
@@ -22,12 +22,11 @@ int main()
             case 1: push();
                 break;
         
-            /*case 2: pop();
+            case 2: pop();
                     break;
                 
-            case 3: top = getTop();
-                    printf("Top element is %d", top);
-                    break;*/
+            case 3: printf("Top element is %d\n",  getTop());
+                    break;
         
             case 4: display();
                     break;
@@ -41,8 +40,8 @@ int main()
 void push()
 {
     int elem;
-    if(top == SIZE)
-        printf("Attempting for Stack overflow");
+    if(top == SIZE - 1)
+        printf("Attempting for Stack overflow\n");
     else
     {
         if(top == -1)
@@ -55,8 +54,29 @@ void push()
     }
 }
 
+void pop()
+{
+    if(top == -1)
+        printf("Attempting for a stack underflow\n");
+    else
+    {
+        printf("Element deleted from stack is %d\n",stack[top]);
+        top--;
+    }
+}
+
+int getTop()
+{
+    return top;
+}
+
 void display()
 {
-    for(int i = 0; i <= top; i++)
+    if(getTop() == -1)
+        printf("Stack is empty\n");
+    else
+    {
+        for(int i = 0; i <= top; i++)
         printf("%d\n", stack[i]);
+    }    
 }
