@@ -81,6 +81,7 @@ void pop()
         }
         
         printf("Element deleted from stack is %d\n",top->data);
+        free(top);
         q->link = NULL;
         top = q;
     }
