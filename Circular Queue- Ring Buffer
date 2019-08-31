@@ -52,27 +52,10 @@ void insert()
     {
        printf("cQueue is full\n"); 
     }
-    /*else if((front == -1) && (rear == -1))
-    {
-        front = rear = 0;
-        cQueue[rear] = elem;
-    }
-    else if(rear == SIZE-1)
-    {
-        cQueue[rear] = elem;
-        rear = 0;
-    }
-    else
-    {
-        rear++;
-        cQueue[rear] = elem;
-    }*/
     else
     {
         if((front == -1) && (rear == -1))
-        {
-            front = rear = 0;
-        }
+            front = rear = 0;        
         else if(rear == SIZE-1)
             rear = 0;
         else
@@ -88,24 +71,6 @@ void delete()
     {
         printf("Queue is empty\n");
     }
-    /*else if(front == SIZE-1)
-    {
-        elem = cQueue[front];
-        printf("ELement deleted is %d front : %d\n", elem, front);
-        front = 0;
-    }
-    else if(front == rear)
-    {
-        elem = cQueue[front];
-        printf("ELement deleted is %d  front : %d\n", elem, front);
-        front = rear = -1;
-    }
-    else
-    {
-        elem = cQueue[front];
-        printf("ELement deleted is %d front : %d\n", elem, front);
-        front++;
-    }*/
     else
     {
         printf("Element deleted is %d\n",cQueue[front]);
