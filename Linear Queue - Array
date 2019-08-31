@@ -1,0 +1,95 @@
+/******************************************************************************
+
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <stdio.h>
+#define SIZE 5
+
+void insert();
+void delete();
+void display();
+
+int front = -1;
+int rear = -1;
+int Queue[SIZE];
+
+int main()
+{
+    
+    int choice;
+    while(1)
+    {
+        printf("Enter your choice ");
+        scanf("%d",&choice);
+        switch(choice)
+        {
+            case 1: insert();
+                    break;
+        
+            case 2: delete();
+                    break;
+                
+            case 3: display();
+                    break;
+                
+            case 4 :exit(0);
+        }    
+    }
+    return 0;
+}
+
+void insert()
+{
+    int elem;
+    printf("Enter element to insert in to queue ");
+    scanf("%d", &elem);
+    if((rear == SIZE-1))
+    {
+       printf("Queue is full\n"); 
+    }
+    else
+    {
+        if((front == -1) && (rear == -1))
+            front = rear = 0;        
+        else
+            rear++;
+        Queue[rear] = elem;
+    }
+}
+
+void delete()
+{
+    int elem;
+    if((front == -1) && (rear == -1))
+    {
+        printf("Queue is empty\n");
+    }
+    else
+    {
+        printf("Element deleted is %d\n",Queue[front]);
+        if(front == rear)
+            front = rear = -1;
+        else    
+            front ++;
+    }
+}
+
+void display()
+{   
+    int i;
+    if((rear == -1) && (front == -1))
+    {
+        printf("queue is empty\n");
+    }
+    else
+    {
+        for(i = front; i <= rear; i++)
+        {
+            printf("element is %d at position %d\n", Queue[i],i);
+        }
+    }
+}
