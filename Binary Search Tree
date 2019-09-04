@@ -51,7 +51,6 @@ void insert()
     temp->right = NULL;
     temp->left = NULL;
     current = root;
-    printf("address :%p ",current);
     
     if(root == NULL)
     {
@@ -59,7 +58,6 @@ void insert()
     }
     else
     {
-        printf("Root %d", root->data);
         while(current != NULL)
         {
             parent = current;
@@ -69,9 +67,10 @@ void insert()
                 current = current->left;
         }
         if(temp->data > parent->data)
-            current->right = temp;
+            parent->right = temp;
         else
-            current->left = temp;
+            parent->left = temp;
+        //printf("parent :%d ",parent->data);    
     }
 }
         
