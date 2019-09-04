@@ -1,0 +1,79 @@
+/******************************************************************************
+
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <stdio.h>
+
+struct node
+{
+  int data;
+  struct node *left;
+  struct node *right;
+};
+
+struct node *root = NULL;
+
+int main()
+{
+    int choice;
+    while(1)
+    {
+        printf("Enter the choice  ");
+        scanf("%d",&choice);
+        switch(choice)
+        {
+            case 1:
+                    insert();
+                    break;
+            /*case 2: 
+                    delete();
+                    break;
+            case 3:       
+                    display();
+                    break;*/
+            case 4: 
+                    exit(0);
+        }
+    }
+    return 0;
+}    
+
+void insert()
+{
+    struct node *temp, *parent,*current;
+    temp = (struct node*)malloc(sizeof(struct node));
+    printf("Enter the tree element  ");
+    scanf("%d", &temp->data);
+    temp->right = NULL;
+    temp->left = NULL;
+    current = root;
+    printf("address :%p ",current);
+    
+    if(root == NULL)
+    {
+        root = temp;
+    }
+    else
+    {
+        printf("Root %d", root->data);
+        while(current != NULL)
+        {
+            parent = current;
+            if(temp->data > current->data)
+                current = current->right;
+            else
+                current = current->left;
+        }
+        if(temp->data > parent->data)
+            current->right = temp;
+        else
+            current->left = temp;
+    }
+}
+        
+    
+
