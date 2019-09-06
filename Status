@@ -1,0 +1,28 @@
+Status of the day - 6.9.19
+1. Strings and Pointers - stuck with doubt in mind.
+int main()
+{
+    char *name;
+    name = (char*)malloc(sizeof(char));
+    scanf("%s",name);
+    printf("name is %s",*name);
+    return 0;
+}
+
+Results in segmentation fault. Fault is removed when * in printf is removed.
+int main()
+{
+    int *name;
+    name = (int*)malloc(sizeof(int));
+    scanf("%d",name);
+    printf("name is %d",*name);
+    return 0;
+}    
+This yeilds the expected result. But why ????????
+**************************************************************************************************
+2. Array of pointers : char *name[3] = { “cat”,”dog”,”man”}; - Analyze deeper how to print it etc.
+**************************************************************************************************
+3. Go through these two pages :
+   http://faq.programmerworld.net/programming/Best-Questions-for-Embedded-Programmers.htm
+   https://binaryupdates.com/interview-guide-for-embedded-c-programmers/
+**************************************************************************************************   
