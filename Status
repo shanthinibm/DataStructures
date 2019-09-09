@@ -21,7 +21,10 @@ int main()
 This yeilds the expected result. But why ????????
 **************************************************************************************************
 2. Array of pointers : char *name[3] = { “cat”,”dog”,”man”}; - Analyze deeper how to print it etc. - To code and see different ways 
-   of accessing it. Analyse it deeper. 
+   of accessing it. Analyse it deeper.  
+   Refer : 
+   https://www.dyclassroom.com/c/c-pointers-and-strings
+   https://www.dummies.com/programming/c/how-to-use-pointers-and-strings-in-c-programming/
 **************************************************************************************************
 3. Go through this page:
      https://binaryupdates.com/interview-guide-for-embedded-c-programmers/
@@ -33,3 +36,7 @@ This yeilds the expected result. But why ????????
 ***************************************************************************************************   
 6. Integer promotion in C area
    Expression involving signed and unsigned types has all operands promoted to unsigned types.
+***************************************************************************************************
+7. https://www.geeksforgeeks.org/storage-for-strings-in-c/ - Storage classes in C
+***************************************************************************************************
+8. https://www.geeksforgeeks.org/lvalue-and-rvalue-in-c-language/ - What is lValue and rValue in c?
