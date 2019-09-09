@@ -20,7 +20,8 @@ int main()
 }    
 This yeilds the expected result. But why ????????
 **************************************************************************************************
-2. Array of pointers : char *name[3] = { “cat”,”dog”,”man”}; - Analyze deeper how to print it etc.
+2. Array of pointers : char *name[3] = { “cat”,”dog”,”man”}; - Analyze deeper how to print it etc. - To code and see different ways 
+   of accessing it. Analyse it deeper. 
 **************************************************************************************************
 3. Go through this page:
      https://binaryupdates.com/interview-guide-for-embedded-c-programmers/
