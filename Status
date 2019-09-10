@@ -24,12 +24,13 @@ This yeilds the expected result. But why ????????
    of accessing it. Analyse it deeper.  
    Refer : 
    https://www.dyclassroom.com/c/c-pointers-and-strings
-   https://www.dummies.com/programming/c/how-to-use-pointers-and-strings-in-c-programming/
+   https://www.dummies.com/programming/c/how-to-use-pointers-and-strings-in-c-programming/ _ ALMOST DONE except for pending program 
+    ie SORTING OF STRINGS.
 **************************************************************************************************
-3. Go through this page:
-     https://binaryupdates.com/interview-guide-for-embedded-c-programmers/
+3. Go through this page: 
+     https://binaryupdates.com/interview-guide-for-embedded-c-programmers/     
 ***************************************************************************************************
-4. To write down yesterdays skype notes
+4. To write down yesterdays skype notes 
 ***************************************************************************************************
 5. What are the problems with dynamic memory allocation in embedded systems?
    $$$ memory fragmentation, problems with garbage collection, variable execution time - Go deeper and analyse 
