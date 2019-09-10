@@ -33,6 +33,7 @@ This yeilds the expected result. But why ????????
 6. Integer promotion in C area
    Expression involving signed and unsigned types has all operands promoted to unsigned types.
 ***************************************************************************************************
-7. https://www.geeksforgeeks.org/storage-for-strings-in-c/ - Storage classes in C
-***************************************************************************************************
-8. https://www.geeksforgeeks.org/lvalue-and-rvalue-in-c-language/ - What is lValue and rValue in c?
+7.  Prerequesitie : TO check EB NB 1 for written notes on data memory etc.
+    https://www.geeksforgeeks.org/storage-for-strings-in-c/ - Storage classes in C
+
+
