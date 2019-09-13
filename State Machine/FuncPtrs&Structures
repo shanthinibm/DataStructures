@@ -1,0 +1,38 @@
+/* Program to show state machine scenario using function pointers, structure etc*/
+
+#include <stdio.h>
+
+struct state;
+
+typedef void State(struct state*);
+
+struct state 
+{
+  State *next;
+  int i;
+};
+
+
+
+State foo, bar;
+
+void foo(struct state *state)
+{
+    printf("%s   %d  \n",__func__,++state->i);
+    state->next =  bar;
+}
+
+void bar(struct state *state)
+{
+    printf("%s   %d  \n",__func__,++state->i);
+    state->next = state->i < 10 ? foo : 0 ;
+} 
+
+int main()
+{
+    struct state S = {foo, 0};
+    while(S.next)
+        S.next(&S);
+    return 0;
+}
+
