@@ -1,0 +1,38 @@
+/******************************************************************************
+
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <stdio.h>
+typedef void* (*funcPtr)();  //Function pointer to be used as return type of StateFunc() function pointer
+typedef funcPtr (*StateFunc)();
+StateFunc ledOff();
+StateFunc ledOn();
+
+StateFunc ledOff()
+{
+    printf("In led Off \n");
+    return ledOn;
+}
+
+StateFunc ledOn()
+{
+ printf("In Led on\n"); 
+ return ledOff;
+}
+
+
+int main()
+{
+    int i = 1;
+    StateFunc statefunc = ledOn();
+    while(i<5)
+    {
+        statefunc =statefunc();  
+        i++;
+    }
+    return 0;
+}
