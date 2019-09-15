@@ -27,9 +27,6 @@ This yeilds the expected result. But why ????????
    https://www.dummies.com/programming/c/how-to-use-pointers-and-strings-in-c-programming/ _ ALMOST DONE except for pending program 
     ie SORTING OF STRINGS.
 **************************************************************************************************
-5. What are the problems with dynamic memory allocation in embedded systems?
-   $$$ memory fragmentation, problems with garbage collection, variable execution time - Go deeper and analyse 
-***************************************************************************************************   
 6. Integer promotion in C area
    Expression involving signed and unsigned types has all operands promoted to unsigned types.
 ****************************************************************************************************
