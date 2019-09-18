@@ -8,12 +8,14 @@ Write your code in this editor and press "Run" button to compile and execute it.
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 int main()
 {
     char *s1 = "this a orange juice";
     char *s2 = "orange";
-    char *s3;
-    char s4[10];
+    char *s3,*s4;
+    s3 = (char*)malloc(sizeof(char));
+    s4 = s3;
     
     while(*s1 != '\0')
     {
@@ -21,26 +23,21 @@ int main()
         {
             while(*s1 != ' ')
             {
-                *s3 = *s1;
-                printf("%c\n",*s3);
-                //strcpy(s3,s1);
-                *s3++;
-                *s1++;
+                *s4 = *s1;
+                s4++;
+                s1++;
             }
-            //*s3 = '\0';
-            //printf("%s\n",s3);
-            //printf("%s\n",s2);
+            *s4 = '\0';
+            //printf("%s\n",s4);
         }
         if(!(strcmp(s3,s2)))
         {
-            printf("Strings are same"); 
+            printf("Orange is found"); 
             break;
-        } 
-        printf("%c\n",*s1);
-        *s1++;
+        }
+        s1++;
     }
-    strcpy(s4,s2);
-    printf("%s",s4);
-
+    
     return 0;
 }
+
